@@ -23,25 +23,23 @@ function getHumanChoice() {
     let invalidInput = true;
 
     while (invalidInput) {
-        // while (answer === null) {
-        //     answer = prompt("Rock, Paper, or Scissors\nChoose one by typing it below:");
+        while (answer === null) {
+            answer = prompt("Rock, Paper, or Scissors\nChoose one by typing it below:");
             
-        //     // If user clicks cancel
-        //     if (answer === null) {
-        //         let cancel = confirm("End game?");
+            // If user clicks cancel
+            if (answer === null) {
+                let cancel = confirm("End game?");
 
-        //         if (cancel === true) {
-        //             console.log("Game ended. Refresh page to restart game.")
-        //             return;
-        //         } else {
-        //             continue;
-        //         }
-        //     }
-        // }
-        //
-        // answer = answer.toLowerCase();
-
-        answer = prompt("Rock, Paper, or Scissors\nChoose one by typing it below:").toLowerCase();
+                if (cancel === true) {
+                    console.log("Game ended. Refresh page to restart game.")
+                    return "game over";
+                } else {
+                    continue;
+                }
+            }
+        }
+        
+        answer = answer.toLowerCase();
 
         if (answer === "rock") {
             humanChoice = "rock";
@@ -66,7 +64,7 @@ let roundWon = false;
 let roundWinner;
 
 function roundTie() {
-    console.log("    Tie!");
+    console.log("    Tie! Go again.");
     console.log("");
 }
 
@@ -88,6 +86,10 @@ function playRound() {
     while (!roundWon) {
         const computerChoice = getComputerChoice();
         const humanChoice = getHumanChoice();
+
+        if (humanChoice === "game over") {
+            return "game over";
+        }
 
         console.log("  You picked:      " + humanChoice);
         console.log("  Computer picked: " + computerChoice);
@@ -135,7 +137,9 @@ function playGame() {
         roundWon = false;
         roundWinner = null;
 
-        playRound();
+        if (playRound() === "game over") {
+            return;
+        }
 
         console.log("")
         console.log("  Score:");
