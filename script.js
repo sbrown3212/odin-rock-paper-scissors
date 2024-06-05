@@ -1,4 +1,6 @@
-console.log("Rock, Paper, Scissors")
+console.log("Let's Play Rock, Paper, Scissors");
+console.log("")
+
 
 function getComputerChoice() {
     let randNum = Math.floor(Math.random() * 3);
@@ -15,41 +17,30 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    // let answer = prompt("Rock, Paper, or Scissors\nChoose one by typing it below:").toLowerCase();
-    // let humanChoice;
-
-    // if (answer === "rock") {
-    //     humanChoice = "rock";
-    // } else if (answer === "paper") {
-    //     humanChoice === "paper";
-    // } else if (answer === "scissors") {
-    //     humanChoice === "scissors";
-    // } else {
-    //     prompt("Invalid input:\nPlease enter \"rock\", \"paper\", or \"scissors\")
-    // }
-
     let answer = null;
     let humanChoice;
     let invalidInput = true;
 
     while (invalidInput) {
-        while (answer === null) {
-            answer = prompt("Rock, Paper, or Scissors\nChoose one by typing it below:");
+        // while (answer === null) {
+        //     answer = prompt("Rock, Paper, or Scissors\nChoose one by typing it below:");
             
-            // If user clicks cancel
-            if (answer === null) {
-                let cancel = confirm("End game?");
-                
-                if (cancel === true) {
-                    console.log("Game ended. Refresh page to restart game.")
-                    return;
-                } else {
-                    continue;
-                }
-            }
-        }
+        //     // If user clicks cancel
+        //     if (answer === null) {
+        //         let cancel = confirm("End game?");
 
-        answer = answer.toLowerCase();
+        //         if (cancel === true) {
+        //             console.log("Game ended. Refresh page to restart game.")
+        //             return;
+        //         } else {
+        //             continue;
+        //         }
+        //     }
+        // }
+        //
+        // answer = answer.toLowerCase();
+
+        answer = prompt("Rock, Paper, or Scissors\nChoose one by typing it below:").toLowerCase();
 
         if (answer === "rock") {
             humanChoice = "rock";
@@ -67,5 +58,78 @@ function getHumanChoice() {
 
     return humanChoice;
 }
-let humanChoice = getHumanChoice();
-console.log("You picked: " + humanChoice);
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound() {
+    let roundWon = false;
+
+    while (!roundWon) {
+        const computerChoice = getComputerChoice();
+        const humanChoice = getHumanChoice();
+
+        console.log("Computer picked: " + computerChoice);
+        console.log("You picked:      " + humanChoice);
+
+        if (computerChoice === "rock") {
+            if (humanChoice === "rock") {
+                console.log("Tie!");
+                console.log("");
+            } else if (humanChoice === "paper") {
+                console.log("Human wins this round!")
+                ++humanScore;
+                roundWon = true;
+            } else if (humanChoice === "scissors") {
+                console.log("Computer wins this round!")
+                ++computerScore;
+                roundWon = true;
+            }
+        } else if (computerChoice === "paper") {
+            if (humanChoice === "rock") {
+                console.log("Computer wins this round!")
+                ++computerScore;
+                roundWon = true;
+            } else if (humanChoice === "paper") {
+                console.log("Tie!");
+                console.log("");
+            } else if (humanChoice === "scissors") {
+                console.log("Human wins this round!")
+                ++humanScore;
+                roundWon = true;
+            }
+        } else if (computerChoice === "scissors") {
+            if (humanChoice === "rock") {
+                console.log("Human wins this round!")
+                ++humanScore;
+                roundWon = true;
+            } else if (humanChoice === "paper") {
+                console.log("Computer wins this round!")
+                ++computerScore;
+                roundWon = true;
+            } else if (humanChoice === "scissors") {
+                console.log("Tie!");
+                console.log("");
+            }
+        }
+    
+    }
+
+    console.log("Score:");
+    console.log("Computer: " + computerScore);
+    console.log("Human:    " + humanScore);
+}
+
+// let round = 1;
+
+// function playGame() {
+//     computerScore = 0;
+//     humanScore = 0;
+
+//     while (round <= 6) {
+//         console.log("Round " + round);
+
+//         ++round;
+//     }
+
+// }
