@@ -1,6 +1,7 @@
 console.log("Let's Play Rock, Paper, Scissors");
 console.log("Best out of 5 rounds")
 console.log("")
+console.log("To start game, type \"playGame();\" below and press enter.")
 
 
 function getComputerChoice() {
@@ -157,4 +158,5 @@ function playGame() {
     }
 }
 
-playGame();
+//playGame();
+// TODO: give user ability to open dev tools and go to console, then type "playGame();"
