@@ -4,21 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <p>To play this game, you must be able to view the console in developer tools.</p>
-    <h2>To open console:</h2>
+    <h1 class="no-margin-bottom">Rock, Paper, Scissors</h1>
 
-    <h3>Mac OS:</h3>
-    <p>Safari: "Command" + "Option" + "C"</p>
-    <p>Chrome: "Command" + "Option" + "J"</p>
-    <p>Firefox: "Command" + "Option" + "K"</p>
+    <p class="small-margin-top">First to score five points wins.</p>
 
-    <h3>Windows</h3>
-    <p>Edge: "Control" + "Shift" + "J"</p>
-    <p>Chrome: "Control" + "Shift" + "J"</p>
-    <p>Firefox: "Control" + "Shift" + "K"</p>
+    <div>
+        <p id="instructions">To begin, choose an button below.</p>
+    </div>
+
+    <div id="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>    
+    </div>
+
+    <div id="results">
+        <table>
+            <tr>
+                <td>You picked:</td>
+                <td id="human-pick"></td>
+            </tr>
+            <tr>
+                <td>Computer picked:</td>
+                <td id="computer-pick"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table id="score">
+            <tr>
+                <th colspan="2" class="font-size-x-large">Score</th>
+            </tr>
+            <tr>
+                <th>Human</th>
+                <th>Computer</th>
+            </tr>
+            <tr>
+                <td id="human-score">0</td>
+                <td id="computer-score">0</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

@@ -1,0 +1,35 @@
+
+#buttons {
+    padding-bottom: 20px;
+}
+
+#instructions {
+    height: 20px;
+    font-weight: bold;
+}
+
+#results {
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+#score {
+    text-align: center;
+}
+
+#human-pick,
+#computer-pick {
+    font-weight: bold;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.small-margin-top {
+    margin-top: 5px;
+}
+
+.font-size-x-large {
+    font-size: x-large;
+}
